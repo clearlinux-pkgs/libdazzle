@@ -4,7 +4,7 @@
 #
 Name     : libdazzle
 Version  : 3.28.1
-Release  : 2
+Release  : 3
 URL      : https://download.gnome.org/sources/libdazzle/3.28/libdazzle-3.28.1.tar.xz
 Source0  : https://download.gnome.org/sources/libdazzle/3.28/libdazzle-3.28.1.tar.xz
 Summary  : No detailed summary available
