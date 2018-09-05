@@ -1,71 +1,93 @@
 ==============
-Version 3.28.5
-==============
-
-An issue was introduced in menu merging in 3.28.4 and this release fixes
-that and many other issues discovered with ASAN.
-
-Changes in this release:
-
- • Fuzzy indexes now properly release metadata variant
- • Various fixes to g_variant_parse() usage and floating references
- • Menu merging has been fixed in DzlMenuButton
- • A leak in DzlRing was fixed
- • Shortcut closure chains now properly concat GSList links
- • A leak in GDateTime usage was fixed
- • DzlTreeNode no longer leaks emblem names or GIcon instances
- • DockManager now releases it's final transient grab
- • DzlStateMachine now properly cleans up property stack items
- • Multi-paned and dock-bin now properly unregister GdkWindows
-
-We recommend all distributions upgrade to this release.
-
-==============
-Version 3.28.4
+Version 3.30.0
 ==============
 
 Changes in this release:
 
- • Fixes for ref counting on titlebar widget
- • Fix a leak in DzlBoldingLabel of Pango attribute lists
- • Action muxer is now more defensive about string usage
- • Menu popover is now more defensive when destroying widgets
- • A potential, albeit unlikely, leak was plugged in signal dispatching
-   via the shortcut engine.
- • The shortcut controller is now more defensive during widget destruction.
+ • Fix for shift-modifier in keybindings, fixes some issues on
+   AZERTY keyboards.
+ • Added DzlListModelFilter for filtering GListModel using a wrapper
+   model. This has been used in Sysprof for a while now.
+ • DzlApplication will avoid setting the application app menu unless
+   it has been set by the application/plugins.
+
+===============
+Version 3.29.92
+===============
+
+Changes in this release:
+
+ • Fixes to the DzlGraphModel for va_list usage on various architectures.
+ • State machine is a bit more defensive against improper input.
+ • Fullscreen transitions now change the headerbar to be immediately
+   visible after the transition.
+ • A new DzlReadOnlyListModel wrapper has been added which allows
+   developers to create an opaque wrapper around a GListModel.
+ • bindir fixes when used as a subproject
+
+===============
+Version 3.29.91
+===============
+
+Changes in this release:
+
+ • Build system improvements for subproject usage.
+ • Many improvements to DzlSuggestionEntry to allow for more flexible usage
+   that originally designed. You can now use cairo_surface_t for icons as well
+   as GIcon. You can also now have more control over selection changes and
+   activation of items from click or touch events.
+ • DzlDockBin and DzlDockOverlay gained improved control over focus events.
+ • Many leaks have been fixed, including those in unit tests.
+ • You can run unit tests under ASAN so long as you have a minimal suppression
+   file for some Gio module leaks.
+ • Some memory safety improvements and safe-guards across the library.
+ • Animations of zero-length have been improved. This fixes some long-standing
+   issues for systems where shell/gtk animations were disabled.
 
 ==============
-Version 3.28.3
+Version 3.29.4
 ==============
 
 Changes in this release:
 
+ • Add various missing object _new() functions
+ • ApplicationWindow ref count fixes when doing fullscreen transitions
+ • Preferences layout tweaks to allow for stackswitcher use
+ • A new DzlDockItem::presented signal that can be used to track when
+   a dock item has been displayed by its relative container.
+ • Transient grab improvements with dock panels.
+ • A correctness fix in the action muxer.
+ • A leak was fixed in the bolding label's use of pango attributes.
+ • DzlSuggestion gained new API for acquiring GIcon or cairo_surface_t
+
+==============
+Version 3.29.3
+==============
+
+Changes in this release:
+
+ • Build reproducibility work
+ • Version and ABI macros were added to enforce symbol visibility
+ • Various fixes due to increased warnings in GCC
+ • Preferences can now optionally use stackswitcher instead of stacksidebar
  • Animation uses g_signal_connect_object() to simplify lifecycle tracking
  • CPU graph model now re-uses FDs and parse buffers
  • Realtime graphs now try harder to detect when the widget is obscured to
    reduce overhead in that situation.
  • GCancellable chaining tries harder to release state struct.
+ • A number of improvements to be more defensive.
 
 ==============
-Version 3.28.2
-==============
-
-Changes in this release:
-
- • theming: avoid creating unnecessary css providers
-
-==============
-Version 3.28.1
+Version 3.29.1
 ==============
 
 Changes in this release:
 
- • Speciy pkg-config package in gir file
- • Add Dazzle.StackList.push() to vala wrapper
- • DzlFileChooserEntry will now notify when files change
- • Shortcuts now ignore caps-lock when activating shortcuts, to be
-   more like gtk+ itself does.
- • transfer ownership fix for registering signals in code
+ • DzlListBox allows ellipsis control in GtkBuilder interfaces.
+ • DzlThemeManager avoids creating CSS providers when no resources
+   were found within the given path.
+ • Various fixes to the shortcut engine to closer match gtk.
+ • Various GObject Introspection fixes.
 
 ==============
 Version 3.28.0
