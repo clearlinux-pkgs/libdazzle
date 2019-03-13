@@ -1,26 +1,67 @@
 ==============
-Version 3.30.2
+Version 3.32.0
 ==============
+
+No changes since 3.31.92
+
+===============
+Version 3.31.92
+===============
 
 Changes in this release:
 
- • Fix build dependency to properly check for gtk+ >= 3.24. This was already
-   necessary at runtime, as subtle bugs would have occurred with older
-   releases.
- • app-window now uses GtkEventControllerMotion to provide improved tracking
-   of the app window fullscreen toolbar.
- • Shortcut placement was tweaked in menu popover
- • Fixes for shift+tab and ctrl+shift+d keyboard shortcuts
- • Various build fixes for -Bsymbolic and assertions
+ • Cross-compilation fixes
+ • Subproject build fixes
+ • Allow disabling search entry in preferences
 
-==============
-Version 3.30.1
-==============
+===============
+Version 3.31.90
+===============
 
 Changes in this release:
 
- • Correctness fixes to DzlListModelFilter
- • DzlMenuButton now properly hides empty menu sections
+ • A number of improvements to DzlSuggestionEntry to act more like
+   GtkEntryCompletion. It now uses pointer grabs while the popover
+   is displayed.
+ • Styling for the suggestion entry was tweaked to allow themes more
+   control over styling.
+ • DzlProgressMenuButton got a fix for improper gvalue accessor usage.
+
+==============
+Version 3.31.4
+==============
+
+Changes in the release:
+
+ • Improvements to documentation
+ • Improvements to suggestion entry resiliency
+ • GIR fixes for DzlGraphModel
+ • Fixes for ctrl+shift+d
+ • Use GtkPopover for GMenuModel
+ • Animation improvements
+ • Various memory leaks were plugged
+ • Additional Radio API was added
+ • A new remove-file signal was added to the directory reaper. This is not
+   efficient as it passes state to the main thread from a worker thread.
+   It may be optimized in the future
+ • Various performance improvements
+ • File transfer progress callback improvements
+
+==============
+Version 3.31.1
+==============
+
+Changes in the release:
+
+ • DzlPrefernces gained API to do simplified table layouts.
+ • DzlMenuButton hides separators that are not needed.
+ • Build requires gtk+-3.0 3.24.0.
+ • Handle changes to fullscreen state by the window-manager.
+ • Fixes for mouse tracking on fullscreen windows.
+ • Align menu shortcuts to the right.
+ • Fixes for shift-tab to move between widgets.
+ • Add helper for shortcut tooltips.
+ • Correctness fixes for listmodel filter.
 
 ==============
 Version 3.30.0
