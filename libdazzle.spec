@@ -4,10 +4,10 @@
 #
 Name     : libdazzle
 Version  : 3.32.1
-Release  : 12
+Release  : 13
 URL      : https://download.gnome.org/sources/libdazzle/3.32/libdazzle-3.32.1.tar.xz
 Source0  : https://download.gnome.org/sources/libdazzle/3.32/libdazzle-3.32.1.tar.xz
-Summary  : No detailed summary available
+Summary  : A library to delight your users with fancy features
 Group    : Development/Tools
 License  : GPL-3.0
 Requires: libdazzle-bin = %{version}-%{release}
@@ -86,8 +86,14 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1555012518
-export LDFLAGS="${LDFLAGS} -fno-lto"
+export SOURCE_DATE_EPOCH=1557014744
+export AR=gcc-ar
+export RANLIB=gcc-ranlib
+export NM=gcc-nm
+export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 CFLAGS="$CFLAGS" CXXFLAGS="$CXXFLAGS" LDFLAGS="$LDFLAGS" meson --prefix /usr --buildtype=plain   builddir
 ninja -v -C builddir
 
