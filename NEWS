@@ -1,10 +1,32 @@
 ==============
-Version 3.34.1
+Version 3.36.0
 ==============
 
 Changes in this release:
 
- • panel: hide handles when animations are disabled
+ • Style tweaks for Adwaita
+ • New translation scaffolding
+
+==============
+Version 3.35.3
+==============
+
+Changes in this release:
+
+ • Support for secondary icons in suggestion rows
+ • Graph model property range fixes
+
+==============
+Version 3.35.2
+==============
+
+Changes in this release:
+
+ • Touch support for DzlSuggestionEntry
+ • Column sizing improvements to DzlColumnLayout
+ • Documentation improvements
+ • Improved support for disabled animations
+ • Improvments to when and how suggestion popups are displayed
 
 ==============
 Version 3.34.0
